@@ -1,0 +1,10 @@
+@media (max-width: 700px) {
+    .menu {
+        width: 100vw;
+        transform: translateX(-100vw);
+        transition: 0.2s all ease;
+    }
+    .menu.open {
+        transform: translateX(0);
+    }
+}
