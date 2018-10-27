@@ -2,6 +2,9 @@
 body {
     font-family: 'Krub', sans-serif;
 }
+#root {
+    overflow-x: hidden;
+}
 * {
     font-weight: 400;
     user-select: none;
