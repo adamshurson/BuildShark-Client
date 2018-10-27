@@ -1,5 +1,6 @@
 import React from 'react';
 import './tailwind.css';
+import './index.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Login from './components/login/index';
 import Register from "./components/register/index";
@@ -60,12 +61,12 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div className="w-screen min-h-screen flex flex-col">
-                <Header shouldDisplay={this.state.isAuthenticated} toggleMenu={() => this.toggleMenu()} />
+            <div className="w-screen min-h-screen flex flex-col bg-grey-lighter overflow-x-hidden">
+                <Header shouldDisplay={this.state.isAuthenticated} toggleMenu={() => this.toggleMenu()} logout={() => this.logout()}/>
                 <div className="flex-1 flex relative">
                     {
                         this.state.isAuthenticated
-                            ? <Menu isOpen={this.state.menuOpen} pages={this.pages} toggleMenu={() => this.toggleMenu()} logout={() => this.logout()}/>
+                            ? <Menu isOpen={this.state.menuOpen} pages={this.pages} toggleMenu={() => this.toggleMenu()}/>
                             : null
                     }
                     <div className="flex-1 flex">

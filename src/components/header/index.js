@@ -1,38 +1,13 @@
 import React from 'react';
+import "./header.css";
 
 export default function Header(props) {
+    const projects = props.projects || [];
     return props.shouldDisplay
-            ? <div className="p-2 pt-0 bg-black flex items-center">
-                <button onClick={() => props.toggleMenu()}>
-                    <svg
-                        viewBox="0 0 100 100"
-                        height={50}
-                        width={50}
-                        xmlns="http://www.w3.org/2000/svg"
-                        version="1.1"
-                    >
-                        <path fill="#2779bd" d="M 10 30
-                        h 80
-                        v 10
-                        h -80
-                        Z"/>
-                        <path fill="#2779bd" d="M 10 50
-                        h 80
-                        v 10
-                        h -80
-                        Z"/>
-                        <path fill="#2779bd" d="M 10 70
-                        h 80
-                        v 10
-                        h -80
-                        Z"/>
-                    </svg>
-                </button>
-                <h4 className="ml-auto text-4xl text-blue">BuildShark</h4>
-                <svg
+            ? <div className="bg-black flex items-center relative shadow-md">
+                <svg className="p-2 pl-12"
                     viewBox="0 0 100 100"
-                    height={65}
-                    width={65}
+                    height="60px"
                     xmlns="http://www.w3.org/2000/svg"
                     version="1.1"
                 >
@@ -65,6 +40,26 @@ export default function Header(props) {
                q 5 -17.5, 0 -35"
                     />
                 </svg>
+                <div className="ml-auto absolute pin-t pin-b pin-r flex pr-12">
+                    <button className="header-menu hover:bg-blue h-full flex items-center cursor-pointer relative">
+                        <h4 className="text-white px-4">Projects</h4>
+                        <div className="z-10 header-submenu pin-b pin-r absolute flex flex-col shadow-md bg-white">
+                        {
+                            projects.map(project => {
+                                return <h4 className="text-black p-4 hover:bg-orange hover:text-white whitespace-no-wrap text-right">{project.clients.join(" ")}</h4>
+                            })
+                        }
+                        </div>
+                    </button>
+                    <button className="header-menu hover:bg-blue h-full flex items-center cursor-pointer relative">
+                        <h4 className="text-white px-4">Account</h4>
+                        <div className="z-10 header-submenu pin-b pin-r absolute flex flex-col shadow-md bg-white">
+                            <h4 className="text-black p-4 hover:bg-orange hover:text-white whitespace-no-wrap text-right">My Account</h4>
+                            <h4 className="text-black p-4 hover:bg-orange hover:text-white whitespace-no-wrap text-right">Company</h4>
+                            <h4 onClick={() => props.logout()} className="text-black p-4 hover:bg-orange hover:text-white whitespace-no-wrap text-right">Logout</h4>
+                        </div>
+                    </button>
+                </div>
             </div>
             : null
 }

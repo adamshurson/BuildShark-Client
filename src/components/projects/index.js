@@ -125,7 +125,7 @@ export default class Projects extends React.Component {
         ];
     }
     render() {
-        return <div className="flex-1 flex flex-col bg-white">
+        return <div className="flex-1 flex flex-col">
             projects
         </div>
     }

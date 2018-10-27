@@ -31,9 +31,9 @@ export default class Login extends React.Component {
     render() {
         return <div className="flex flex-col flex-1 items-center justify-center bg-black">
             <Logo />
-            <input type="text" onChange={(evt) => this.setState({username: evt.target.value})} placeholder="Username" className="bg-white w-2/3 mt-4 p-2"/>
-            <input type="password" onChange={(evt) => this.setState({password: evt.target.value})} placeholder="Password" className="bg-white w-2/3 mt-4 p-2"/>
-            <div className="mt-8 w-2/3 flex">
+            <input type="text" onChange={(evt) => this.setState({username: evt.target.value})} placeholder="Username" className="bg-white w-2/3 lg:w-1/4 mt-4 p-2"/>
+            <input type="password" onChange={(evt) => this.setState({password: evt.target.value})} placeholder="Password" className="bg-white w-2/3 lg:w-1/4 mt-4 p-2"/>
+            <div className="mt-8 w-2/3 lg:w-1/4 flex">
                 <button onClick={() => this.register()} className="px-4 py-2 bg-white text-black">
                     Register
                 </button>

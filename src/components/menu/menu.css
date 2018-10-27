@@ -8,3 +8,13 @@
         transform: translateX(0);
     }
 }
+@media (min-width: 701px) and (max-width: 1280px) {
+    .menu {
+        width: 35vw;
+    }
+}
+@media (min-width: 1281px) {
+    .menu {
+        width: 25vw;
+    }
+}

@@ -1,0 +1,11 @@
+.header-submenu {
+    display: none;
+    min-width: 200px;
+}
+.header-menu:hover .header-submenu {
+    transform: translateY(100%);
+    display: flex;
+}
+.w-fit {
+    width: fit-content;
+}

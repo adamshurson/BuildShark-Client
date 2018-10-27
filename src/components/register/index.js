@@ -27,14 +27,14 @@ export default class Register extends React.Component {
     render() {
         return <div className="flex-1 flex flex-col items-center justify-center bg-black">
             <Logo />
-            <input type="text" onChange={(evt) => this.setState({username: evt.target.value})} placeholder="Username" className="bg-white w-2/3 mt-4 p-2"/>
-            <input type="password" onChange={(evt) => this.setState({password: evt.target.value})} placeholder="Password" className="bg-white w-2/3 mt-4 p-2"/>
-            <input type="password" onChange={(evt) => this.setState({confirmPassword: evt.target.value})} placeholder="Confirm Password" className="bg-white w-2/3 mt-4 p-2"/>
-            <select onChange={(evt) => this.setState({type: evt.target.value})} placeholder="I am a..." className="bg-white w-2/3 mt-4 p-2">
+            <input type="text" onChange={(evt) => this.setState({username: evt.target.value})} placeholder="Username" className="bg-white w-2/3 lg:w-1/4 mt-4 p-2"/>
+            <input type="password" onChange={(evt) => this.setState({password: evt.target.value})} placeholder="Password" className="bg-white w-2/3 lg:w-1/4 mt-4 p-2"/>
+            <input type="password" onChange={(evt) => this.setState({confirmPassword: evt.target.value})} placeholder="Confirm Password" className="bg-white w-2/3 lg:w-1/4 mt-4 p-2"/>
+            <select onChange={(evt) => this.setState({type: evt.target.value})} placeholder="I am a..." className="bg-white w-2/3 lg:w-1/4 mt-4 p-2">
                 <option value="client">Client</option>
                 <option value="employee">Employee</option>
             </select>
-            <div className="mt-8 w-2/3 flex">
+            <div className="mt-8 w-2/3 lg:w-1/4 flex">
                 <button onClick={() => this.login()} className="px-4 py-2 bg-white text-black">
                     Login
                 </button>

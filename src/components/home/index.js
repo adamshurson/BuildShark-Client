@@ -15,8 +15,8 @@ export default class Home extends React.Component {
         });
     }
     render() {
-        return <div className="flex flex-col flex-1 bg-white">
-            <h4>Home</h4>
+        return <div className="flex flex-col flex-1 justify-center items-center">
+            <h4>Dashboard Coming Soon!</h4>
         </div>
     }
 }
