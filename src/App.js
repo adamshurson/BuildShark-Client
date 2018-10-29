@@ -7,15 +7,18 @@ import Register from "./components/register/index";
 import Home from "./components/home/index";
 import Header from "./components/header/index";
 import User from "./pearls/user";
+import Company from "./pearls/company";
 import Menu from "./components/menu";
 import Projects from "./components/projects";
+import FinishRegistration from './components/finishRegistration';
 
 class App extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             menuOpen: false,
-            isAuthenticated: false
+            isAuthenticated: false,
+            isRegistered: false
         };
         this.pages = [
             {
@@ -39,16 +42,26 @@ class App extends React.Component {
             {
                 route: '/register',
                 component: Register
-            },
+            }
         ];
+        this.User = new User();
+        this.Company = new Company();
     }
     componentDidMount() {
-        this.User = new User();
         this.User.subscribe((newState) => {
             this.setState({
                 isAuthenticated: newState.isAuthenticated
+            }, () => this.fetchCompanies());
+        });
+        this.Company.subscribe((newState) => {
+            this.setState({
+                isRegistered: newState.companies.length !== 0
             });
         });
+    }
+    fetchCompanies() {
+        const user = this.User.getUser();
+        this.Company.fetchCompanies(user._id);
     }
     toggleMenu() {
       this.setState({
@@ -62,16 +75,18 @@ class App extends React.Component {
     render() {
         return (
             <div className="w-screen min-h-screen flex flex-col bg-grey-lighter overflow-x-hidden">
-                <Header shouldDisplay={this.state.isAuthenticated} toggleMenu={() => this.toggleMenu()} logout={() => this.logout()}/>
+                <Header shouldDisplay={this.state.isAuthenticated && this.state.isRegistered} toggleMenu={() => this.toggleMenu()} logout={() => this.logout()}/>
                 <div className="flex-1 flex relative">
                     {
-                        this.state.isAuthenticated
+                        this.state.isAuthenticated && this.state.isRegistered
                             ? <Menu isOpen={this.state.menuOpen} pages={this.pages} toggleMenu={() => this.toggleMenu()}/>
                             : null
                     }
                     <div className="flex-1 flex">
                         {
-                            this.pages.map(page => {
+                            (!this.state.isRegistered && this.state.isAuthenticated)
+                            ? <FinishRegistration />  
+                            : this.pages.map(page => {
                                 return <Route key={page.route} path={page.route} component={page.component} exact/>
                             })
                         }

@@ -49,6 +49,7 @@ export default function Header(props) {
                                 return <h4 className="text-black p-4 hover:bg-orange hover:text-white whitespace-no-wrap text-right">{project.clients.join(" ")}</h4>
                             })
                         }
+                            <h4 className="text-black p-4 hover:bg-orange hover:text-white whitespace-no-wrap text-center">Add Project</h4>
                         </div>
                     </button>
                     <button className="header-menu hover:bg-blue h-full flex items-center cursor-pointer relative">

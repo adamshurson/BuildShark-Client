@@ -86,7 +86,31 @@ export default class User extends Pearl {
                     token: null
                 });
                 localStorage.removeItem('token');
-            }
+            };
+            this.getUser = () => {
+                return this.state.userObject;
+            };
+            this.finishRegistration = (data, fallback) => {
+                if (data.companyName === null || data.registrationCode === null) {
+                    fallback("Please fill out all fields");
+                } else {
+                    axios.post(`${Server.getRootUrl()}/auth/finishRegistration`, data)
+                        .then((response) => {
+                            if (response.data.success) {
+                                const u = this.state.userObject;
+                                u.isRegistered = true;
+                                this.setState({
+                                    userObject: u
+                                });
+                            } else {
+                                fallback(response.data.err);
+                            }
+                        })
+                        .catch((error) => {
+                            alert(error);
+                        });
+                }
+            };
         });
     }
 }
