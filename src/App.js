@@ -6,6 +6,7 @@ import Login from './components/login/index';
 import Register from "./components/register/index";
 import Home from "./components/home/index";
 import Header from "./components/header/index";
+import CompanyPage from "./components/company/index";
 import User from "./pearls/user";
 import Company from "./pearls/company";
 import Menu from "./components/menu";
@@ -22,18 +23,16 @@ class App extends React.Component {
         };
         this.pages = [
             {
-                name: 'Home',
                 route: '/',
-                showInMenu: true,
-                icon: 'home',
                 component: Home
             },
             {
-                name: 'Projects',
                 route: '/projects',
-                showInMenu: true,
-                icon: 'paper-plane',
                 component: Projects
+            },
+            {
+                route: '/company',
+                component: CompanyPage
             },
             {
                 route: '/login',

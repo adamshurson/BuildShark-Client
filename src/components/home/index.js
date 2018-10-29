@@ -16,7 +16,7 @@ export default class Home extends React.Component {
         });
     }
     render() {
-        return <div className="flex flex-wrap flex-1 pr-8 py-4">
+        return <div className="flex flex-wrap flex-1">
                     <div className="p-4 lg:w-1/2">
                         <div className="shadow-md bg-white rounded-lg overflow-hidden flex flex-col hover:shadow-lg">
                             <div className="flex p-4 items-center">

@@ -8,10 +8,14 @@ body {
 * {
     font-weight: 400;
     user-select: none;
+    -webkit-user-drag: none;
 }
 .text-regular {
     font-family: 'Roboto', sans-serif;
 }
 *[class^='hover'], *[class*=' hover'] {
     transition: 0.2s all ease;
+}
+.img-contain {
+    object-fit: contain;
 }
