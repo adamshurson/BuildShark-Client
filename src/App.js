@@ -74,7 +74,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="w-screen min-h-screen flex flex-col bg-grey-lighter overflow-x-hidden">
-                <Header shouldDisplay={this.state.isAuthenticated && this.state.isRegistered} toggleMenu={() => this.toggleMenu()} logout={() => this.logout()}/>
+                <Header user={this.User} company={this.Company} shouldDisplay={this.state.isAuthenticated && this.state.isRegistered} toggleMenu={() => this.toggleMenu()} logout={() => this.logout()}/>
                 <div className="flex-1 flex relative">
                     {
                         this.state.isAuthenticated && this.state.isRegistered

@@ -19,3 +19,6 @@ body {
 .img-contain {
     object-fit: contain;
 }
+::-webkit-scrollbar {
+    display: none;
+}

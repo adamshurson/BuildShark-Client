@@ -1,8 +1,16 @@
 import React from 'react';
 import "./header.css";
 import { withRouter } from "react-router";
+import ProjectService from "../../utilities/project";
 
 class Header extends React.Component {
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
+    createProject() {
+        ProjectService.createProject(this.props.user.getUser()._id, this.props.company.getCompany()._id);
+    }
     render() {
         const projects = this.props.projects || [];
         return this.props.shouldDisplay
@@ -51,7 +59,7 @@ class Header extends React.Component {
                                     return <h4 className="text-black p-4 hover:bg-orange hover:text-white whitespace-no-wrap text-right">{project.clients.join(" ")}</h4>
                                 })
                             }
-                                <h4 className="text-black p-4 hover:bg-orange hover:text-white whitespace-no-wrap text-center">Add Project</h4>
+                                <h4 onClick={() => this.createProject()} className="text-black p-4 hover:bg-orange hover:text-white whitespace-no-wrap text-center">Add Project</h4>
                             </div>
                         </button>
                         <button className="header-menu hover:bg-blue h-full flex items-center cursor-pointer relative">
